@@ -1,0 +1,2 @@
+normally the browser sends GET requests to the server when you vist a URL so when a route is configured to handle POST and it gets a GET then it will break and fail.
+when a route is type and URL hit the browser traverses the route to the URL hit and returns what the function contains. if the route is type POST and the URL is hit with a GET request then it will break and fail. so when you are testing a route that is type POST you need to use a tool like postman to send a POST request to the server.
