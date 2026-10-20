@@ -13,7 +13,16 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->string('title', 200);
+            $table->text('notes')->nullable();
+            $table->string('status')->default('inbox');   // inbox | today | done
+            $table->timestamp('due_at')->nullable();
+            $table->timestamp('completed_at')->nullable();
+            $table->unsignedInteger('position')->default(0);
             $table->timestamps();
+
+            $table->index(['user_id', 'status']);
         });
     }
 
